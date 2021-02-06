@@ -7,12 +7,21 @@ from django.shortcuts import render
 def home(request):
     return HttpResponse("Players should b here")
 
-def players_view(request, name):
+def player_view(request, name):
     return render(
         request,
-        'players/about.html',
+        'players/player.html',
         {
             'name': name,
             'date': datetime.now()
         }
     )
+
+def contact_view(request):
+    return render(request, 'players/contact.html')
+
+def home_view(request):
+    return render(request, 'players/home.html')
+
+def about_view(request):
+    return render(request, 'players/about.html')
