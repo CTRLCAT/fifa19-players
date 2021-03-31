@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='style.css') }}"/>
+        <title>{% block title %} {% endblock %}</title>
+    
+        <h1>
+            FIFA21 player recommender
+        </h1>
+        <div>
+            <ul>
+                <li>About</li>
+                <li>Explore</li>
+                <li>Compare</li>
+                <li>Recommend</li>
+            </ul>
+        </div>
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
