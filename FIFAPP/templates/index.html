@@ -6,4 +6,9 @@ Home page
 
 {% block content %}
 <h1>This should be the content</h1>
+
+{% for r in results %}
+    <li>{{ r }}</li>
+{% endfor %}
+
 {% endblock %}
