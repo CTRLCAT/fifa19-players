@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+
+{% block title %} 
+Explore FIFA 21 players
+{% endblock %}
+
+{% block content %}
+<h1>Explore the players!</h1>
+
+{% for r in results %}
+    <li>{{ r }}</li>
+{% endfor %}
+
+{% endblock %}

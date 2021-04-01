@@ -13,15 +13,22 @@ Players=db.Table('players21',db.metadata,autoload=True, autoload_with=db.engine)
 
 @app.route('/')
 def main():
+    return render_template('index.html')
+
+@app.route('/explore')
+def explore():
     results=db.session.query(Players).all()
     #for r in results:
     #    print(r.last_name)
+    return render_template('explore.html', results=results)
 
-    return render_template('index.html', results=results)
+@app.route('/compare')
+def compare():
+    return render_template('compare.html')
 
-@app.route('/base')
-def base():
-    return render_template('base.html')
+@app.route('/recommend')
+def recommend():
+    return render_template('recommend.html')
 
 if __name__ == '__main__':
     app.run()
