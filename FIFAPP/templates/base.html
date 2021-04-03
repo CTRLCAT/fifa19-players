@@ -3,11 +3,12 @@
 <html>
     <head>
     <link rel='stylesheet'  href="{{ url_for('static', filename='css/style.css') }}"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"> 
         
         <title>{% block title %} {% endblock %}</title>
     </head>
     <body>
+    <nav id='nav-bar'> 
     <div id='header'>
             <div id='titleback'>
                 <div id='toplogo'>
@@ -15,7 +16,7 @@
                 </div>
             
                 <h1>
-                    FUT AI
+                    <a href='/'>FUT AI</a>
                 </h1>
             </div>
             <div id='menu'>
@@ -25,7 +26,19 @@
                 <a id='menuelement' href='/recommend'>Recommend</a>
             </div>
     </div>
+    </nav>
+    <body>
         {% block content %}
         {% endblock %}
     </body>
+
+     <footer>
+     <div id='theend'>
+        <p>Author: Cristina Acevedo</p>
+    </div>
+    
+    <div id='endshadow'>
+        <p>Author: Cristina Acevedo</p>
+    </div>
+    </footer> 
 </html>
