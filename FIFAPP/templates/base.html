@@ -1,22 +1,30 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel='stylesheet'  href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet"> 
+        
         <title>{% block title %} {% endblock %}</title>
-    
-        <h1>
-            FIFA21 player recommender
-        </h1>
-        <div>
-            <ul>
-                <li><a href='/'>About</a></li>
-                <li><a href='/explore'>Explore</a></li>
-                <li><a href='/compare'>Compare</a></li>
-                <li><a href='/recommend'>Recommend</a></li>
-            </ul>
-        </div>
     </head>
     <body>
+    <div id='header'>
+            <div id='titleback'>
+                <div id='toplogo'>
+                    <image src="{{ url_for('static', filename='images/SmallLogo.png') }}" />
+                </div>
+            
+                <h1>
+                    FUT AI
+                </h1>
+            </div>
+            <div id='menu'>
+                <a id='menuelement' href='/'>About</a>
+                <a id='menuelement' href='/explore'>Explore</a>
+                <a id='menuelement' href='/compare'>Compare</a>
+                <a id='menuelement' href='/recommend'>Recommend</a>
+            </div>
+    </div>
         {% block content %}
         {% endblock %}
     </body>

@@ -1,0 +1,52 @@
+*{
+    margin: 0px; 
+}
+
+h1{
+    transform: skew(20deg);
+    color: white;
+    font-style: italic;
+    margin-left: 20px;
+    margin-top: 7px;
+    font-weight: 800;
+}
+#toplogo{
+    transform: skew(20deg);
+    background-color: #37095C;
+    margin-left: 25px;
+}
+
+
+#titleback{
+    background-color: #37095C;
+    transform: skew(-20deg);
+    display:flex;
+    width: 300px;
+    padding: 10px;
+    margin-left: -15px;
+}
+
+image{
+    height: 100px;
+}
+
+#menu{
+    display: flex;
+    padding: 10px;
+    align-content: flex-end
+}
+#menuelement{
+    padding: 10px;
+    color: #50514F;
+    text-decoration: none;
+}
+
+#header{
+    display:flex;
+}
+
+body{
+    color: rebeccapurple;
+    font-family: 'Montserrat', sans-serif;
+}
+
