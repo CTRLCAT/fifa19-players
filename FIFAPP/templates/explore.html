@@ -5,12 +5,11 @@ Explore FIFA 21 players
 {% endblock %}
 
 {% block content %}
-<h3 id='exploreinstructions'>Explore the players!</h3>
 
-
-{% for r in results %}
-    <li>{{ r.name }}</li>
-{% endfor %} 
-
-
+<div id='searchbox'>
+    <form method='POST'>
+        <input id='textbox' type='text' name='search_string'>
+        <input id='searchbutton' type='submit' formaction='/search' value='Search'>
+    </form>
+</div>
 {% endblock %}

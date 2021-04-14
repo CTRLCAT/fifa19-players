@@ -16,14 +16,14 @@ print('HELLO')
 def main():
     return render_template('index.html')
 
-@app.route('/explore', methods=['GET','POST'])
+@app.route('/search', methods=['GET','POST'])
 def explore():
     if request.method =='POST':
         form=request.form
         search_value=form['search_string']
         search='%{}%'.format(search_value)
         results=db.session.query(Players).filter_by(name=search_value)
-        return render_template('explore.html', results=results)
+        return render_template('search.html', results=results)
 
     else:
         return redirect('/')
@@ -46,13 +46,10 @@ def compare():
 def recommend():
     return render_template('recommend.html')
 
-@app.route('/trying')
+@app.route('/explore')
 def trying():
-    return render_template('trying.html')
+    return render_template('explore.html')
 
-@app.route('/livesearch', methods=['POST','GET'])
-def livesearch():
-    mysearchbox = request.form.get('text')
 
 
 if __name__ == '__main__':
