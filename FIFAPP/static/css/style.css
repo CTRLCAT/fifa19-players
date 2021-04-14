@@ -99,3 +99,7 @@ h4{
     z-index: 10;
 }
 
+#exploreinstructions{
+    margin-top: calc(100px + 10vh);
+}
+

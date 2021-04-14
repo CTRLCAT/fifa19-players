@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from datetime import datetime
 import json
 from flask_sqlalchemy import SQLAlchemy
@@ -20,7 +20,7 @@ def explore():
     results=db.session.query(Players).all()
     #for r in results:
     #    print(r.last_name)
-    return render_template('explore.html', results=results)
+    return render_template('explore.html')
 
 @app.route('/compare')
 def compare():
@@ -29,6 +29,15 @@ def compare():
 @app.route('/recommend')
 def recommend():
     return render_template('recommend.html')
+
+@app.route('/trying')
+def trying():
+    return render_template('trying.html')
+
+@app.route('/livesearch', methods=['POST','GET'])
+def livesearch():
+    mysearchbox = request.form.get('text')
+
 
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type='text' id='searchbox'/>
+</body>
+
+<script>
+    $(document).ready(function() {
+        $('searchbox').on('input', function(e) {
+            mytext=$('#searchbox').val();
+            $.ajax({
+                method:'post',
+                url:'/livesearch',
+                data:{text:mytext},
+                success:function(res){
+
+                }
+            })
+        });
+    });
+</script>
+</html>
