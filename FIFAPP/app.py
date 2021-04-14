@@ -17,10 +17,11 @@ def main():
 
 @app.route('/explore')
 def explore():
-    results=db.session.query(Players).all()
+    #results=db.session.query(Players).all()
+    results=db.session.query(Players).filter_by(name='Cristiano Ronaldo').all()
     #for r in results:
     #    print(r.last_name)
-    return render_template('explore.html')
+    return render_template('explore.html', results=results)
 
 @app.route('/compare')
 def compare():

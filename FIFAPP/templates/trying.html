@@ -5,21 +5,7 @@
 </head>
 <body>
     <input type='text' id='searchbox'/>
+
 </body>
 
-<script>
-    $(document).ready(function() {
-        $('searchbox').on('input', function(e) {
-            mytext=$('#searchbox').val();
-            $.ajax({
-                method:'post',
-                url:'/livesearch',
-                data:{text:mytext},
-                success:function(res){
-
-                }
-            })
-        });
-    });
-</script>
 </html>
