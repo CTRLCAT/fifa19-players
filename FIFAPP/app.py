@@ -10,18 +10,33 @@ app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///Players.db'
 db=SQLAlchemy(app)
 
 Players=db.Table('players21',db.metadata,autoload=True, autoload_with=db.engine)
+print('HELLO')
 
 @app.route('/')
 def main():
     return render_template('index.html')
 
-@app.route('/explore')
+@app.route('/explore', methods=['GET','POST'])
 def explore():
+    if request.method =='POST':
+        form=request.form
+        search_value=form['search_string']
+        search='%{}%'.format(search_value)
+        results=db.session.query(Players).filter_by(name=search_value)
+        return render_template('explore.html', results=results)
+
+    else:
+        return redirect('/')
+
+
     #results=db.session.query(Players).all()
-    results=db.session.query(Players).filter_by(name='Cristiano Ronaldo').all()
+    #results=db.session.query(Players).filter_by(name='Cristiano Ronaldo')
+ 
+
     #for r in results:
     #    print(r.last_name)
-    return render_template('explore.html', results=results)
+    #return render_template('explore.html', results=results)
+    
 
 @app.route('/compare')
 def compare():
