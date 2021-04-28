@@ -50,7 +50,17 @@ def recommend():
 def trying():
     return render_template('explore.html')
 
+@app.route('/recommendations', methods=['GET','POST'])
+def recommendations():
+    if request.method =='POST':
+        form=request.form
+        search_value=form['recommend_string']
+        search='%{}%'.format(search_value)
+        results=db.session.query(Players).filter_by(name=search_value)
+        return render_template('recommendations.html', results=results)
 
+    else:
+        return redirect('/')
 
 if __name__ == '__main__':
     app.run()

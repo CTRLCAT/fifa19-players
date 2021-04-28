@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{% block title %} 
+FIFA 21 players recommendations
+{% endblock %}
+
+{% block content %}
+<h3 id='exploreinstructions'>Explore the recommendations!</h3>
+
+
+{% for r in results %}
+    <li>{{ r.name }}</li>
+{% endfor %} 
+
+
+{% endblock %}
