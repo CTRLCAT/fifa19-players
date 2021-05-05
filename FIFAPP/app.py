@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from datetime import datetime
 import json
 from flask_sqlalchemy import SQLAlchemy
+import pandas as pd
 
 
 app =Flask(__name__)
@@ -9,12 +10,19 @@ app =Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///Players.db'
 db=SQLAlchemy(app)
 
-Players=db.Table('players21',db.metadata,autoload=True, autoload_with=db.engine)
+Players=db.Table('players19',db.metadata,autoload=True, autoload_with=db.engine)
 print('HELLO')
+results=db.session.query(Players).all()
+results=pd.DataFrame(results)
+colnames =["index","name","age","resource_base_id","fut_bin_id","fut_wiz_id","first_name","last_name","common_name","height","weight","birth_date","league","nation","club","rarity","traits","specialities","tradeable","position","skill_moves","weak_foot","foot","attack_work_rate","defense_work_rate","total_stats","total_stats_in_game","rating","rating_average","pace","shooting","passing","dribbling","defending","physicality","pace_attributes","shooting_attributes","passing_attributes","dribbling_attributes","defending_attributes","physicality_attributes","goalkeeper_attributes"]
+print(results[1])
+#results.columns=colnames
+#change column names
 
 @app.route('/')
 def main():
     return render_template('index.html')
+
 
 @app.route('/search', methods=['GET','POST'])
 def explore():
@@ -29,12 +37,11 @@ def explore():
         return redirect('/')
 
 
-    #results=db.session.query(Players).all()
+    
     #results=db.session.query(Players).filter_by(name='Cristiano Ronaldo')
  
 
-    #for r in results:
-    #    print(r.last_name)
+    
     #return render_template('explore.html', results=results)
     
 
