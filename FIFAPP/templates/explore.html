@@ -15,4 +15,11 @@ Explore FIFA 21 players
         <input id='searchbutton' type='submit' formaction='/search' value='Search'>
     </form>
 </div>
+
+<select id='selectbox' size='10'>
+{% for n in names %}
+    <option>{{ n }}</option>
+{% endfor %} 
+</select>
+
 {% endblock %}

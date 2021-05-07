@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///Players.db'
 db=SQLAlchemy(app)
 
 Players=db.Table('players19',db.metadata,autoload=True, autoload_with=db.engine)
-print('HELLO')
+print('OK')
 #results=db.session.query(Players).all()
 #results=pd.DataFrame(results)
 #colnames = ["ID","Name","Age","Overall","Potential","Club","Value","Wage","Special","PreferredFoot","InternationalReputation","WeakFoot","SkillMoves","WorkRateUp","WorkRateDown","BodyType","RealFace","Position","JerseyNumber","Joined","LoanedFrom","ContractValidUntil","Height","Weight","LS","ST","RS","LW","LF","CF","RF","RW","LAM","CAM","RAM","LM","LCM","CM","RCM","RM","LWB","LDM","CDM","RDM","RWB","LB","LCB","CB","RCB","RB","Crossing","Finishing","HeadingAccuracy","ShortPassing","Volleys","Dribbling","Curve","FKAccuracy","LongPassing","BallControl","Acceleration","SprintSpeed","Agility","Reactions","Balance","ShotPower","Jumping","Stamina","Strength","LongShots","Aggression","Interceptions","Positioning","Vision","Penalties","Composure","Marking","StandingTackle","SlidingTackle","GKDiving","GKHandling","GKKicking","GKPositioning","GKReflexes","ReleaseClause"]
@@ -25,25 +25,20 @@ def main():
 
 
 @app.route('/search', methods=['GET','POST'])
-def explore():
+def search():
     if request.method =='POST':
         form=request.form
         search_value=form['search_string']
         #search='%{}%'.format(search_value)
 
         results=db.session.query(Players).filter_by(Name=search_value)
-        print(results)
+        #print(results)
         return render_template('search.html', results=results)
 
     else:
         return redirect('/')
 
-
-    
     #results=db.session.query(Players).filter_by(name='Cristiano Ronaldo')
- 
-
-    
     #return render_template('explore.html', results=results)
     
 
@@ -55,9 +50,22 @@ def compare():
 def recommend():
     return render_template('recommend.html')
 
-@app.route('/explore')
+@app.route('/trying')
 def trying():
-    return render_template('explore.html')
+    results=db.session.query(Players).all()
+    names=[]
+    for player in results:
+        names.append(player[1])
+    return render_template('trying.html', names=names)
+
+@app.route('/explore', methods=['GET','POST'])
+def explore():
+    results=db.session.query(Players).all()
+    names=[]
+    for player in results:
+        names.append(player[1])
+    #print(names)
+    return render_template('explore.html', names=names)
 
 @app.route('/recommendations', methods=['GET','POST'])
 def recommendations():

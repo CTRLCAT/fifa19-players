@@ -1,0 +1,17 @@
+<script type=text/javascript src="{{
+  url_for('static', filename='js/main.js') }}"></script>
+
+<link rel='stylesheet'  href="{{ url_for('static', filename='css/style.css') }}"/>
+<script> var playersnames = {{ names|tojson }}; </script>
+
+
+<form autocomplete="off" method='POST'>
+  <div class="autocomplete" style="width:300px;">
+    <input id="myInput" type="text" name="search_string" placeholder="Player's name">
+  </div>
+  <input type="submit" formaction='/search' value='Search'>
+</form>
+
+ <script>
+autocomplete(document.getElementById("myInput"), playersnames);
+</script> 
