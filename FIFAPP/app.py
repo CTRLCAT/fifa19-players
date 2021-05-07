@@ -12,14 +12,12 @@ db=SQLAlchemy(app)
 
 Players=db.Table('players19',db.metadata,autoload=True, autoload_with=db.engine)
 print('HELLO')
-results=db.session.query(Players).all()
-results=pd.DataFrame(results)
-colnames = ["ID","Name","Age","Overall","Potential","Club","Value","Wage","Special","PreferredFoot","InternationalReputation","WeakFoot","SkillMoves","WorkRateUp","WorkRateDown","BodyType","RealFace","Position","JerseyNumber","Joined","LoanedFrom","ContractValidUntil","Height","Weight","LS","ST","RS","LW","LF","CF","RF","RW","LAM","CAM","RAM","LM","LCM","CM","RCM","RM","LWB","LDM","CDM","RDM","RWB","LB","LCB","CB","RCB","RB","Crossing","Finishing","HeadingAccuracy","ShortPassing","Volleys","Dribbling","Curve","FKAccuracy","LongPassing","BallControl","Acceleration","SprintSpeed","Agility","Reactions","Balance","ShotPower","Jumping","Stamina","Strength","LongShots","Aggression","Interceptions","Positioning","Vision","Penalties","Composure","Marking","StandingTackle","SlidingTackle","GKDiving","GKHandling","GKKicking","GKPositioning","GKReflexes","ReleaseClause"]
+#results=db.session.query(Players).all()
+#results=pd.DataFrame(results)
+#colnames = ["ID","Name","Age","Overall","Potential","Club","Value","Wage","Special","PreferredFoot","InternationalReputation","WeakFoot","SkillMoves","WorkRateUp","WorkRateDown","BodyType","RealFace","Position","JerseyNumber","Joined","LoanedFrom","ContractValidUntil","Height","Weight","LS","ST","RS","LW","LF","CF","RF","RW","LAM","CAM","RAM","LM","LCM","CM","RCM","RM","LWB","LDM","CDM","RDM","RWB","LB","LCB","CB","RCB","RB","Crossing","Finishing","HeadingAccuracy","ShortPassing","Volleys","Dribbling","Curve","FKAccuracy","LongPassing","BallControl","Acceleration","SprintSpeed","Agility","Reactions","Balance","ShotPower","Jumping","Stamina","Strength","LongShots","Aggression","Interceptions","Positioning","Vision","Penalties","Composure","Marking","StandingTackle","SlidingTackle","GKDiving","GKHandling","GKKicking","GKPositioning","GKReflexes","ReleaseClause"]
+#results.columns=colnames
+#print(results['Name'])
 
-
-results.columns=colnames
-print(results['Name'])
-#change column names
 
 @app.route('/')
 def main():
@@ -31,8 +29,10 @@ def explore():
     if request.method =='POST':
         form=request.form
         search_value=form['search_string']
-        search='%{}%'.format(search_value)
-        results=db.session.query(Players).filter_by(name=search_value)
+        #search='%{}%'.format(search_value)
+
+        results=db.session.query(Players).filter_by(Name=search_value)
+        print(results)
         return render_template('search.html', results=results)
 
     else:
