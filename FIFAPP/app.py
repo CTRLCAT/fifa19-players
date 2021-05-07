@@ -14,9 +14,11 @@ Players=db.Table('players19',db.metadata,autoload=True, autoload_with=db.engine)
 print('HELLO')
 results=db.session.query(Players).all()
 results=pd.DataFrame(results)
-colnames =["index","name","age","resource_base_id","fut_bin_id","fut_wiz_id","first_name","last_name","common_name","height","weight","birth_date","league","nation","club","rarity","traits","specialities","tradeable","position","skill_moves","weak_foot","foot","attack_work_rate","defense_work_rate","total_stats","total_stats_in_game","rating","rating_average","pace","shooting","passing","dribbling","defending","physicality","pace_attributes","shooting_attributes","passing_attributes","dribbling_attributes","defending_attributes","physicality_attributes","goalkeeper_attributes"]
-print(results[1])
-#results.columns=colnames
+colnames = ["ID","Name","Age","Overall","Potential","Club","Value","Wage","Special","PreferredFoot","InternationalReputation","WeakFoot","SkillMoves","WorkRateUp","WorkRateDown","BodyType","RealFace","Position","JerseyNumber","Joined","LoanedFrom","ContractValidUntil","Height","Weight","LS","ST","RS","LW","LF","CF","RF","RW","LAM","CAM","RAM","LM","LCM","CM","RCM","RM","LWB","LDM","CDM","RDM","RWB","LB","LCB","CB","RCB","RB","Crossing","Finishing","HeadingAccuracy","ShortPassing","Volleys","Dribbling","Curve","FKAccuracy","LongPassing","BallControl","Acceleration","SprintSpeed","Agility","Reactions","Balance","ShotPower","Jumping","Stamina","Strength","LongShots","Aggression","Interceptions","Positioning","Vision","Penalties","Composure","Marking","StandingTackle","SlidingTackle","GKDiving","GKHandling","GKKicking","GKPositioning","GKReflexes","ReleaseClause"]
+
+
+results.columns=colnames
+print(results['Name'])
 #change column names
 
 @app.route('/')
