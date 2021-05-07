@@ -9,17 +9,22 @@ Explore FIFA 21 players
     <h4>Enter a player's name</h4>
 </div>
 
-<div id='searchbox'>
-    <form method='POST'>
-        <input id='textbox' type='text' name='search_string'>
-        <input id='searchbutton' type='submit' formaction='/search' value='Search'>
-    </form>
-</div>
+<script type=text/javascript src="{{
+  url_for('static', filename='js/main.js') }}"></script>
 
-<select id='selectbox' size='10'>
-{% for n in names %}
-    <option>{{ n }}</option>
-{% endfor %} 
-</select>
+<link rel='stylesheet'  href="{{ url_for('static', filename='css/style.css') }}"/>
+<script> var playersnames = {{ names|tojson }}; </script>
+
+
+<form autocomplete="off" method='POST'>
+  <div class="autocomplete" style="width:300px;">
+    <input id="myInput" type="text" name="search_string" placeholder="Player's name">
+  </div>
+  <input type="submit" formaction='/search' value='Search'>
+</form>
+
+ <script>
+autocomplete(document.getElementById("myInput"), playersnames);
+</script> 
 
 {% endblock %}

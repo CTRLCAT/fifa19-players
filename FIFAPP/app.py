@@ -50,21 +50,12 @@ def compare():
 def recommend():
     return render_template('recommend.html')
 
-@app.route('/trying')
-def trying():
-    results=db.session.query(Players).all()
-    names=[]
-    for player in results:
-        names.append(player[1])
-    return render_template('trying.html', names=names)
-
 @app.route('/explore', methods=['GET','POST'])
 def explore():
     results=db.session.query(Players).all()
     names=[]
     for player in results:
         names.append(player[1])
-    #print(names)
     return render_template('explore.html', names=names)
 
 @app.route('/recommendations', methods=['GET','POST'])
