@@ -7,9 +7,13 @@ Explore FIFA 21 players
 {% block content %}
 <h3 id='exploreinstructions'>Explore the players!</h3>
 
-
 {% for r in results %}
     <li>{{ r.Name }}</li>
+    <li>{{ r.Overall }}</li>
+    <li>{{ r.Potential }}</li>
+    <li>{{ r.Value }}</li>
+    <li>{{ r.Wage }}</li>
+    <li>{{ r.Position }}</li>
 {% endfor %} 
 
 
