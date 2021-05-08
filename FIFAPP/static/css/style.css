@@ -101,6 +101,7 @@ h4{
 
 #exploreinstructions{
     margin-top: calc(100px + 10vh);
+    margin-left: 10vw;
 }
 
 #searchbox{
@@ -135,14 +136,6 @@ h4{
 #selectbox{
     margin-top: 100px;
 }
-
-
-
-
-
-
-
-
 .autocomplete {
     /*the container must be positioned relative:*/
     position: relative;
@@ -159,11 +152,13 @@ input {
 input[type=text] {
     background-color: #f1f1f1;
     width: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 input[type=submit] {
     background-color: #37095C;
     color: #fff;
     margin-left: 15px;
+    font-family: 'Montserrat', sans-serif;
 }
 .autocomplete-items {
     position: absolute;
@@ -190,4 +185,27 @@ input[type=submit] {
     /*when navigating through the items using the arrow keys:*/
     background-color: #37095C !important;
     color: #ffffff;
+}
+#playersdisplay{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 50px;
+    align-content: space-evenly;
+}
+#playerinfo{
+    background-color: #9F86C0;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 7px;
+    font-family: 'Montserrat', sans-serif;
+}
+#playersname{
+    font-size: 25px;
+    font-weight: bold;
+    color: #37095C;
+}
+#playeroverall{
+
+    font-size: 25px;
 }
