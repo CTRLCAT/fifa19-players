@@ -10,12 +10,23 @@ Recommend FIFA 19 players
     <h4>Select a player and we will recommend some similar ones!</h4>
 </div>
 
-<div id='searchbox'>
-    <form method='POST'>
-        <input id='textbox' type='text' name='recommend_string'>
-        <input id='searchbutton' type='submit' formaction='/recommendations' value='Search'>
-    </form>
-</div>
+<script type=text/javascript src="{{
+  url_for('static', filename='js/main.js') }}"></script>
+
+<link rel='stylesheet'  href="{{ url_for('static', filename='css/style.css') }}"/>
+<script> var playersnames = {{ names|tojson }}; </script>
+
+
+<form autocomplete="off" method='POST'>
+  <div class="autocomplete" style="width:300px;">
+    <input id="myInput" type="text" name="recommend_string" placeholder="Player's name">
+  </div>
+  <input type="submit" formaction='/recommendations' value='Recommend'>
+</form>
+
+ <script>
+autocomplete(document.getElementById("myInput"), playersnames);
+</script> 
 
 
 {% endblock %}

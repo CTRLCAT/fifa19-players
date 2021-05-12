@@ -34,7 +34,7 @@ def explore():
     for player in results:
         names.append(player[1])
     return render_template('explore.html', names=names)
-    
+
 @app.route('/search', methods=['GET','POST'])
 def search():
     if request.method =='POST':
@@ -53,17 +53,22 @@ def search():
     #return render_template('explore.html', results=results)
     
 
-@app.route('/recommend')
+@app.route('/recommend', methods=['GET','POST'])
 def recommend():
-    return render_template('recommend.html')
+    results=db.session.query(Players).all()
+    names=[]
+    for player in results:
+        names.append(player[1])
+    return render_template('recommend.html', names=names)
+
 
 @app.route('/recommendations', methods=['GET','POST'])
 def recommendations():
     if request.method =='POST':
         form=request.form
-        search_value=form['recommend_string']
-        search='%{}%'.format(search_value)
-        results=db.session.query(Players).filter_by(name=search_value)
+        recommend_string=form['recommend_string']
+        search='%{}%'.format(recommend_string)
+        results=db.session.query(Recommendations).filter_by(name=recommend_string)
         return render_template('recommendations.html', results=results)
 
     else:
