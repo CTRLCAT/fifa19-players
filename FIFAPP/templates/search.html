@@ -7,17 +7,22 @@ Explore FIFA 19 players
 {% block content %}
 <h3 id='exploreinstructions'>Explore the players!</h3>
 
-<div id='playersdisplay'>
-    {% for r in results %}
-    <div id='playerinfo'>
-        <h4>{{ r.Name }}</h4>
-        <p id='playeroverall'>Overall: {{ r.Overall }}</p>
-        <p>Potential: {{ r.Potential }}</p>
-        <p>Value: {{ r.Value }}</p>
-        <p>Wage: {{ r.Wage }}</p>
-        <p>Position: {{ r.Position }}</p>
+<div id='playersdisplaybox'>
+    <div id='emptyspace'></div>
+
+    <div id='playersdisplay'>
+        {% for r in results %}
+        <div id='playerinfo'>
+            <h4>{{ r.Name }}</h4>
+            <p id='playeroverall'>Overall: {{ r.Overall }}</p>
+            <p>Potential: {{ r.Potential }}</p>
+            <p>Value: {{ r.Value }}</p>
+            <p>Wage: {{ r.Wage }}</p>
+            <p>Position: {{ r.Position }}</p>
+        </div>
+        {% endfor %} 
+        <div id='emptyspace'></div>
     </div>
-    {% endfor %} 
 </div>
 
 {% endblock %}

@@ -193,8 +193,10 @@ input[type=submit] {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 50px;
     align-content: space-evenly;
+}
+#playersdisplaybox{
+    margin-top: 50px;
     margin-left: 70px;
     margin-right: 70px;
     overflow: auto;
@@ -211,12 +213,11 @@ input[type=submit] {
     margin-left: 10px;
     margin-right: 10px;
 }
-#playersname{
-    font-size: 25px;
-    font-weight: bold;
-    color: #37095C;
-}
 #playeroverall{
 
     font-size: 25px;
+}
+#emptyspace{
+    height: 5px;
+
 }
