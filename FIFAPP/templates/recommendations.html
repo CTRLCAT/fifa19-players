@@ -6,18 +6,17 @@ FIFA 19 players recommendations
 
 {% block content %}
 <h3 id='exploreinstructions'>Explore the recommendations!</h3>
-<h4>Here are your recommendations for </h4> 
 
-<div id='recommendationresults'>
+<div id='playersdisplay'>
     {% for r in results %}
-        <div id='recommendationitem'>
-            <h4>{{ r.name }} {{r.overall}}</h4>
-            <p>{{ r.r1 }}</p>
-            <p>{{ r.r2 }}</p>
-            <p>{{ r.r3 }}</p>
-            <p>{{ r.r4 }}</p>
-            <p>{{ r.r5 }}</p>
-        </div>
+    <div id='playerinfo'>
+        <h4>{{ r.name }} {{r.overall}}</h4>
+        <p>{{ r.r1 }}</p>
+        <p>{{ r.r2 }}</p>
+        <p>{{ r.r3 }}</p>
+        <p>{{ r.r4 }}</p>
+        <p>{{ r.r5 }}</p>
+    </div>
     {% endfor %} 
 <div>
 
