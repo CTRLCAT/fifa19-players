@@ -96,7 +96,7 @@ h4{
     clip-path: polygon(0 calc(10vw), 100% 0, 100% 100vh, 0 100vh);
     position: absolute;
     bottom: 0;
-    z-index: 10;
+    z-index: 100;
 }
 
 #exploreinstructions{
@@ -208,4 +208,25 @@ input[type=submit] {
 #playeroverall{
 
     font-size: 25px;
+}
+#recommendationresults{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    overflow: auto;
+    height: 224px;
+    margin-top: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+
+}
+#recommendationitem{
+    background-color: #9F86C0;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 7px;
+    color: #ffffff;
+    margin-top: 20px;
 }
