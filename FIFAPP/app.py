@@ -75,9 +75,29 @@ def recommendations():
         return redirect('/')
 
 
-@app.route('/compare')
+@app.route('/compare', methods=['GET','POST'])
 def compare():
-    return render_template('compare.html')
+    results=db.session.query(Players).all()
+    names=[]
+    for player in results:
+        names.append(player[1])
+    return render_template('compare.html', names=names)
+
+@app.route('/compareresults', methods=['GET','POST'])
+def compareresults():
+    if request.method =='POST':
+        form=request.form
+        search_value1=form['search_string1']
+        search_value2=form['search_string2']
+        #search='%{}%'.format(search_value)
+
+        results1=db.session.query(Players).filter_by(Name=search_value1)
+        results2=db.session.query(Players).filter_by(Name=search_value2)
+        #print(results)
+        return render_template('compareresults.html', results1=results1)
+
+    else:
+        return redirect('/')
 
 
 if __name__ == '__main__':

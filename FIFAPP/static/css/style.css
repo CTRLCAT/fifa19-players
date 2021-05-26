@@ -157,11 +157,23 @@ input[type=text] {
     width: 100%;
     font-family: 'Montserrat', sans-serif;
 }
+#myInput1{
+    width: 45% !important;
+}
+#myInput2{
+    width: 45% !important;
+}
+#comparebox{
+    margin-left: calc(50vw - 350px);
+}
 input[type=submit] {
     background-color: #37095C;
     color: #fff;
     margin-left: 15px;
     font-family: 'Montserrat', sans-serif;
+}
+#comparebtn{
+    margin-left: 0px !important;
 }
 .autocomplete-items {
     position: absolute;
@@ -214,10 +226,8 @@ input[type=submit] {
     margin-right: 10px;
 }
 #playeroverall{
-
     font-size: 25px;
 }
 #emptyspace{
     height: 5px;
-
 }

@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{% block title %} 
+Compare FIFA 19 players
+{% endblock %}
+
+{% block content %}
+<h3 id='exploreinstructions'>Compare the players!</h3>
+
+<div id='playersdisplaybox'>
+    <div id='emptyspace'></div>
+
+    <div id='playersdisplay'>
+        {% for r in results1 %}
+        <div id='playerinfo'>
+            <h4>{{ r.Name }}</h4>
+            <p id='playeroverall'>Overall: {{ r.Overall }}</p>
+            <p>Potential: {{ r.Potential }}</p>
+            <p>Value: {{ r.Value }}</p>
+            <p>Wage: {{ r.Wage }}</p>
+            <p>Position: {{ r.Position }}</p>
+        </div>
+        {% endfor %} 
+        <div id='emptyspace'></div>
+    </div>
+</div>
+
+{% endblock %}

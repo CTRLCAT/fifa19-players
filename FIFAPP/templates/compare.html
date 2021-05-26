@@ -5,9 +5,31 @@ Compare FIFA 19 players
 {% endblock %}
 
 {% block content %}
-<div id='content'>
-    <h4>Very soon you are going to be able 
-    to compare different players</h4>
+
+<div id='inputinstructions'>
+    <h4>Select two players to compare</h4>
 </div>
+
+<script type=text/javascript src="{{
+  url_for('static', filename='js/main.js') }}"></script>
+
+<link rel='stylesheet'  href="{{ url_for('static', filename='css/style.css') }}"/>
+<script> var playersnames = {{ names|tojson }}; </script>
+
+
+<form autocomplete='off' method='POST'>
+    <div class ='autocomplete' style='width:600px;' id='comparebox'>
+        <input id='myInput1' type='text' name='compare_string1' placeholder="Player's name">
+        <input id='myInput2' type='text' name='compare_string2' placeholder="Player's name">
+    </div>
+    <input id='comparebtn' type='submit' formaction='/compareresults' value='Compare'>
+</form>
+
+ <script>
+autocomplete(document.getElementById("myInput1"), playersnames);
+</script> 
+ <script>
+autocomplete(document.getElementById("myInput2"), playersnames);
+</script> 
 
 {% endblock %}
