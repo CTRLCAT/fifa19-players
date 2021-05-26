@@ -87,14 +87,14 @@ def compare():
 def compareresults():
     if request.method =='POST':
         form=request.form
-        search_value1=form['search_string1']
-        search_value2=form['search_string2']
+        search_value1=form['compare_string1']
+        search_value2=form['compare_string2']
         #search='%{}%'.format(search_value)
 
         results1=db.session.query(Players).filter_by(Name=search_value1)
         results2=db.session.query(Players).filter_by(Name=search_value2)
         #print(results)
-        return render_template('compareresults.html', results1=results1)
+        return render_template('compareresults.html', results1=results1, results2=results2)
 
     else:
         return redirect('/')

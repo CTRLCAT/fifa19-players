@@ -23,6 +23,20 @@ Compare FIFA 19 players
         {% endfor %} 
         <div id='emptyspace'></div>
     </div>
+
+    <div id='playersdisplay'>
+        {% for r in results2 %}
+        <div id='playerinfo'>
+            <h4>{{ r.Name }}</h4>
+            <p id='playeroverall'>Overall: {{ r.Overall }}</p>
+            <p>Potential: {{ r.Potential }}</p>
+            <p>Value: {{ r.Value }}</p>
+            <p>Wage: {{ r.Wage }}</p>
+            <p>Position: {{ r.Position }}</p>
+        </div>
+        {% endfor %} 
+        <div id='emptyspace'></div>
+    </div>
 </div>
 
 {% endblock %}
